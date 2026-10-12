@@ -1,0 +1,13 @@
+# 이 파일을 config/application.yml 로 복사한 뒤 값을 채우세요.
+# 프로젝트 루트에서 실행하면 Spring Boot가 ./config/application.yml 을 자동으로 읽습니다.
+# (/config/ 폴더는 .gitignore 처리되어 있어 키가 커밋되지 않습니다.)
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sicdang
+    username: postgres
+    password: CHANGE_ME
+
+kakao:
+  rest-key: CHANGE_ME   # Kakao Developers > 앱 키 > REST API 키
+  js-key: CHANGE_ME     # Kakao Developers > 앱 키 > JavaScript 키 (플랫폼 > Web 에 http://localhost:9191 등록 필요)

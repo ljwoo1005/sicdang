@@ -1,0 +1,47 @@
+server:
+  port: 9191
+
+spring:
+  application:
+    name: sicdang
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/sicdang}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:}
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+  cache:
+    type: caffeine
+    cache-names: kakaoKeywordSearch
+    caffeine:
+      spec: maximumSize=2000,expireAfterWrite=10m
+
+  mvc:
+    problemdetails:
+      enabled: true
+
+kakao:
+  rest-key: ${KAKAO_REST_KEY:}
+  js-key: ${KAKAO_JS_KEY:}
+  base-url: https://dapi.kakao.com
+  # 구내식당 후보를 찾기 위해 차례로 검색할 키워드
+  keywords:
+    - 구내식당
+    - 직원식당
+    - 한식뷔페
+  # 검색 결과 중 카테고리명에 아래 문자열이 포함된 곳만 구내식당으로 표시
+  category-includes:
+    - 구내식당
+    - 한식뷔페
+
+logging:
+  level:
+    com.sicdang: debug

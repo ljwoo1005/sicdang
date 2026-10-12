@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>내 주변 구내식당</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="toolbar">
+	<h1>🍱 내 주변 구내식당</h1>
+	<form id="place-search" class="place-search" role="search" autocomplete="off">
+		<input id="place-query" type="search" placeholder="주소 또는 장소 검색 (예: 판교역, 세종대로 110)"
+			   aria-label="주소 또는 장소 검색" aria-controls="place-results" aria-expanded="false" maxlength="100">
+		<button type="submit">검색</button>
+		<ul id="place-results" class="place-results" role="listbox" hidden></ul>
+	</form>
+	<div class="controls">
+		<label>
+			반경
+			<select id="radius">
+				<option value="500">500m</option>
+				<option value="1000" selected>1km</option>
+				<option value="2000">2km</option>
+				<option value="3000">3km</option>
+			</select>
+		</label>
+		<button id="btn-my-location" type="button">내 위치</button>
+		<button id="btn-research" type="button" class="primary">이 지역 다시 검색</button>
+	</div>
+</header>
+
+<main class="layout">
+	<div id="map" class="map"></div>
+	<aside class="panel">
+		<p id="status" class="status">위치를 확인하는 중…</p>
+		<ul id="list" class="list"></ul>
+	</aside>
+</main>
+
+<script th:inline="javascript">
+	window.SICDANG = { kakaoJsKey: /*[[${kakaoJsKey}]]*/ '' };
+</script>
+<script th:src="@{/js/map.js}"></script>
+</body>
+</html>

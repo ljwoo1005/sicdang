@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "sicdang",
+      "runtimeExecutable": "C:/Program Files/Java/jdk-17/bin/java.exe",
+      "runtimeArgs": ["-Dfile.encoding=UTF-8", "-Dstdout.encoding=UTF-8", "-jar", "build/libs/sicdang-0.0.1-SNAPSHOT.jar"],
+      "port": 9191
+    }
+  ]
+}
